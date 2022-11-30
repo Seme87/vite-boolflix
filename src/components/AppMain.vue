@@ -18,7 +18,7 @@ export default {
 
 <template>
   <main class="container d-flex">
-    <AppCardMovie :info="store.movies" v-for="movie in store.movies" />
+    <AppCardMovie :info="store.movie" v-for="movie in store.movies" />
   </main>
 </template>
 

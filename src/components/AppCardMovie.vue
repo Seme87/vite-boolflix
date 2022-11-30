@@ -3,7 +3,7 @@ import { store } from "../store.js";
 export default {
   name: "AppCardMovie",
   props: {
-    info: {},
+    info: Object,
   },
   data() {
     return {
@@ -18,7 +18,7 @@ export default {
     <div class="img">
       <img src="https://via.placeholder.com/300" alt="" />
     </div>
-    <h2>titolo</h2>
+    <h2>{{ info }}</h2>
     <h3>Original title</h3>
     <h4>language</h4>
     <h5>Vote</h5>
