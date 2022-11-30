@@ -1,15 +1,23 @@
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
 export default {
   components: {
-    HelloWorld,
+    AppHeader,
+    AppMain,
+  },
+  methods: {
+    saluta() {
+      console.log("Buongiorno");
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    <HelloWorld />
+    <AppHeader @cliccato="saluta" />
+    <AppMain />
   </div>
 </template>
 
