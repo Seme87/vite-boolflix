@@ -1,8 +1,13 @@
 <script>
+import AppCardMovie from "./AppCardMovie.vue";
+
 import { store } from "../store.js";
 
 export default {
   name: "AppMain",
+  components: {
+    AppCardMovie,
+  },
   data() {
     return {
       store,
@@ -12,9 +17,9 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h2>Main</h2>
-  </div>
+  <main class="container d-flex">
+    <AppCardMovie :info="store.movies" v-for="movie in store.movies" />
+  </main>
 </template>
 
 <style lang="scss" scoped>

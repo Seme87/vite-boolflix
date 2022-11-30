@@ -4,6 +4,7 @@ import axios from "axios";
 
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
+
 export default {
   components: {
     AppHeader,
@@ -15,7 +16,7 @@ export default {
     };
   },
   methods: {
-    saluta() {
+    onGetMovie() {
       axios
         .get("https://api.themoviedb.org/3/search/movie", {
           params: {
@@ -35,7 +36,7 @@ export default {
 
 <template>
   <div>
-    <AppHeader @performSearch="saluta" />
+    <AppHeader @performSearch="onGetMovie" />
     <AppMain />
   </div>
 </template>
