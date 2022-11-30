@@ -16,13 +16,19 @@ export default {
     <div class="container-fluid">
       <form class="d-flex" role="search" @submit.prevent="">
         <input
-          @click="$emit('cliccato')"
+          v-model="store.searchText"
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button
+          class="btn btn-outline-success"
+          @click="$emit('performSearch')"
+          type="submit"
+        >
+          Search
+        </button>
       </form>
     </div>
   </nav>

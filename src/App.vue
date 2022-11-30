@@ -1,4 +1,7 @@
 <script>
+import { store } from "./store";
+import axios from "axios";
+
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 export default {
@@ -6,9 +9,25 @@ export default {
     AppHeader,
     AppMain,
   },
+  data() {
+    return {
+      store,
+    };
+  },
   methods: {
     saluta() {
-      console.log("Buongiorno");
+      axios
+        .get("https://api.themoviedb.org/3/search/movie", {
+          params: {
+            api_key: "f0fb5f5dcb06636c7f99f213e5ae5cd2",
+            query: store.searchText,
+            language: "it-IT",
+          },
+        })
+        .then((res) => {
+          console.log(res.data.results);
+          this.store.movies = res.data.results;
+        });
     },
   },
 };
@@ -16,7 +35,7 @@ export default {
 
 <template>
   <div>
-    <AppHeader @cliccato="saluta" />
+    <AppHeader @performSearch="saluta" />
     <AppMain />
   </div>
 </template>
