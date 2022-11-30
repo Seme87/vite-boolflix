@@ -14,14 +14,24 @@ export default {
 </script>
 
 <template>
-  <div class="card text-center">
+  <div class="ms-card text-center">
     <div class="img">
       <img src="https://via.placeholder.com/300" alt="" />
     </div>
-    <h2>{{ info }}</h2>
-    <h3>Original title</h3>
-    <h4>language</h4>
-    <h5>Vote</h5>
+    <div class="info">
+      <div>
+        {{ info.title }}
+      </div>
+      <div>
+        {{ info.original_title }}
+      </div>
+      <div>
+        {{ info.original_language }}
+      </div>
+      <div>
+        {{ info.vote_average }}
+      </div>
+    </div>
   </div>
 </template>
 

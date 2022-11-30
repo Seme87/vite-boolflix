@@ -18,12 +18,20 @@ export default {
 
 <template>
   <main class="container d-flex">
-    <AppCardMovie :info="store.movie" v-for="movie in store.movies" />
+    <AppCardMovie
+      class="ms-appcard"
+      :info="movie"
+      v-for="movie in store.movies"
+    />
   </main>
 </template>
 
 <style lang="scss" scoped>
-h2 {
-  color: gold;
+main {
+  flex-wrap: wrap;
+}
+.ms-appcard {
+  padding: 10px;
+  width: calc(100% / 5);
 }
 </style>
