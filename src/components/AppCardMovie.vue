@@ -10,13 +10,26 @@ export default {
       store,
     };
   },
+  methods: {
+    getFlag(lang) {
+      if (lang === "en") return "gb;";
+    },
+  },
+  computed: {
+    vote() {
+      return Math.ceil(this.info.vote_average / 2);
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="ms-card text-center">
+  <div class="ms-card text-center" v-if="info.poster_path">
     <div class="img">
-      <img src="https://via.placeholder.com/300" alt="" />
+      <img
+        :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`"
+        :alt="info.title"
+      />
     </div>
     <div class="info">
       <div>
@@ -25,12 +38,11 @@ export default {
       <div>
         {{ info.original_title }}
       </div>
-      <div>
-        {{ info.original_language }}
-      </div>
-      <div>
-        {{ info.vote_average }}
-      </div>
+      <span :class="`fi fi-${getFlag(info.original_language)}`"></span>
+      <span v-if="vote != 0">
+        <i v-for="n in vote" class="fa-solid fa-star"></i>
+        <i v-for="n in 5 - vote" class="fa-regular fa-star"></i>
+      </span>
     </div>
   </div>
 </template>
