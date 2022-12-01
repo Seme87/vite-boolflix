@@ -2,11 +2,13 @@
 import AppCardMovie from "./AppCardMovie.vue";
 
 import { store } from "../store.js";
+import AppCardSeries from "./AppCardSeries.vue";
 
 export default {
   name: "AppMain",
   components: {
     AppCardMovie,
+    AppCardSeries,
   },
   data() {
     return {
@@ -22,6 +24,11 @@ export default {
       class="ms-appcard"
       :info="movie"
       v-for="movie in store.movies"
+    />
+    <AppCardSeries
+      class="ms-appcard"
+      :infoSeries="serie"
+      v-for="serie in store.series"
     />
   </main>
 </template>

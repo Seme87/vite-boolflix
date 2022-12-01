@@ -30,13 +30,27 @@ export default {
           this.store.movies = res.data.results;
         });
     },
+    onGetSeries() {
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: "f0fb5f5dcb06636c7f99f213e5ae5cd2",
+            query: store.searchText,
+            language: "it-IT",
+          },
+        })
+        .then((res) => {
+          console.log(res.data.results);
+          this.store.series = res.data.results;
+        });
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    <AppHeader @performSearch="onGetMovie" />
+    <AppHeader @performSearch="onGetMovie, onGetSeries" />
     <AppMain />
   </div>
 </template>
