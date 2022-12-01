@@ -1,5 +1,7 @@
 <script>
 import { store } from "../store.js";
+import CountryFlag from "vue-country-flag-next";
+
 export default {
   name: "AppCardMovie",
   props: {
@@ -10,9 +12,14 @@ export default {
       store,
     };
   },
+  components: {
+    CountryFlag,
+  },
   methods: {
     getFlag(lang) {
-      if (lang === "en") return "gb;";
+      if (lang == "en") {
+        return "gb";
+      }
     },
   },
   computed: {
@@ -35,10 +42,16 @@ export default {
       <div>
         {{ info.title }}
       </div>
-      <div>
+      <div v-if="info.original_title != info.title">
         {{ info.original_title }}
       </div>
-      <span :class="`fi fi-${getFlag(info.original_language)}`"></span>
+
+      <div>
+        <country-flag
+          :country="getFlag(info.original_language)"
+          size="normal"
+        />
+      </div>
       <span v-if="vote != 0">
         <i v-for="n in vote" class="fa-solid fa-star"></i>
         <i v-for="n in 5 - vote" class="fa-regular fa-star"></i>
