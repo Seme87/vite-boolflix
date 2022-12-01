@@ -44,13 +44,17 @@ export default {
           this.store.series = res.data.results;
         });
     },
+    getData() {
+      this.onGetMovie();
+      this.onGetSeries();
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    <AppHeader @performSearch="onGetMovie, onGetSeries" />
+    <AppHeader @performSearch="getData" />
     <AppMain />
   </div>
 </template>

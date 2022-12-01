@@ -27,7 +27,8 @@ export default {
   },
   computed: {
     vote() {
-      return Math.ceil(this.info.vote_average / 2);
+      return Math.ceil(this.infoSeries.vote_average / 2);
+      console.log(this.infoSeries.vote_average);
     },
   },
 };
@@ -37,7 +38,7 @@ export default {
   <div class="ms-card text-center" v-if="infoSeries.poster_path">
     <div class="img">
       <img
-        :src="`https://image.tmdb.org/t/p/w342/${infoSeries.poster_path}`"
+        :src="`https://image.tmdb.org/t/p/w300/${infoSeries.poster_path}`"
         :alt="infoSeries.name"
       />
     </div>
