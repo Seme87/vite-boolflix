@@ -18,7 +18,10 @@ export default {
   methods: {
     getFlag(lang) {
       if (lang == "en") {
+        console.log(lang);
         return "gb";
+      } else {
+        return lang;
       }
     },
   },
