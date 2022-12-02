@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="bg">
     <AppHeader @performSearch="getData" />
     <AppMain />
   </div>
@@ -61,4 +61,5 @@ export default {
 
 <style lang="scss">
 @import "./style/global.scss";
+
 </style>

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <main class="container d-flex">
+  <main class="d-flex">
     <AppCardMovie
       class="ms-appcard"
       :info="movie"
@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 main {
   flex-wrap: wrap;
+  background-color: #1a130d;
 }
 .ms-appcard {
   padding: 10px;
